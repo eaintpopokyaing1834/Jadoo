@@ -16,7 +16,7 @@
 
     <!-- Overlay -->
     <div id="overlay"
-      class="fixed bg-black/40 z-30"
+      class="fixed inset-0 bg-black/40 z-30 hidden"
       onclick="toggleMenu()"></div>
 
     <!-- Sidebar -->
@@ -26,9 +26,10 @@
       bg-green-100 border-r-2
       transform -translate-x-full md:translate-x-0
       transition-transform duration-300 ease-in-out
-      overflow-y-auto flex flex-col  ">
+      overflow-y-auto flex flex-col">
 
-      <section class="p-3 flex flex-col h-full z-50">
+      <section class="p-3 flex flex-col h-full">
+
         <!-- Logo -->
         <div class="flex items-center justify-between p-2 px-4">
 
@@ -58,11 +59,11 @@
 
         </div>
 
-        <!-- New Note -->
-        <div class="mt-6 flex  justify-center">
+        <!-- Desktop New Note -->
+        <div class="mt-6 flex items-center px-4">
 
           <button
-            class="text-white px-8 py-3 font-semibold text-lg hidden sm:block
+            class="hidden md:block text-white px-8 py-3 font-semibold text-lg
             bg-green-800 rounded-full w-full">
             + New Note
           </button>
@@ -113,7 +114,7 @@
 
         <!-- Bottom Menu -->
         <div
-          class="flex flex-col md:mt-36 sm:mt-34 py-2 gap-3
+          class="flex flex-col mt-auto py-4 gap-3
           border-t-2 border-slate-400">
 
           <a href="#"
@@ -138,37 +139,40 @@
     </aside>
 
     <!-- Main -->
-    <main class="flex-1 p-2 md:p-4 space-y-6 w-full  md:ml-72">
+    <main class="flex-1 p-2 md:p-4 space-y-6 w-full md:ml-72">
 
       <!-- Navbar -->
-      <div class="flex w-full justify-between fixed z-0 top-0 right-0  items-center p-2 pr-4">
+      <div
+        class="flex w-full justify-between fixed top-0 right-0 items-center p-2 pr-4 bg-white z-20">
 
         <!-- Left -->
-        <div class="flex items-center w-full">
+        <div class="flex items-center w-full gap-2">
 
+          <!-- Menu Button -->
           <button onclick="toggleMenu()"
-            class="md:hidden lg:hidden bg-green-100
+            class="md:hidden bg-green-100
             min-w-[44px] h-11 rounded-full shrink-0
             flex items-center justify-center text-xl">
             ☰
           </button>
 
-          
+          <!-- Search -->
           <input type="search"
             placeholder="🔍 Search your thoughts..."
             class="bg-green-100 w-full text-sm md:w-1/2
-          px-2 py-3 rounded-full outline-none  md:ml-72 " />
+            px-4 py-3 rounded-full outline-none md:ml-72" />
 
         </div>
-          
-        <!-- Right -->
-        <div class="flex items-center gap-2 shrink-0">
 
-          <!-- Hide text on tiny phones -->
-          <p class="font-medium whitespace-nowrap text-sm">
+        <!-- Right -->
+        <div class="flex items-center gap-2 shrink-0 ml-2">
+
+          <!-- Desktop New Note -->
+          <p class="hidden md:block font-medium whitespace-nowrap text-sm">
             + New Note
           </p>
 
+          <!-- Profile -->
           <img src="images/flowergirl.jpg"
             class="w-10 h-10 rounded-full object-cover" />
 
@@ -179,7 +183,7 @@
       <!-- Header -->
       <div
         class="flex flex-col lg:flex-row
-        lg:justify-between lg:items-center pt-10 gap-4">
+        lg:justify-between lg:items-center pt-20 gap-4">
 
         <!-- Greeting -->
         <div>
@@ -394,6 +398,10 @@
       </div>
 
     </main>
+    <button class="md:hidden fixed bottom-5 right-5 z-30 bg-green-900 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl">
+         +
+    </button>
+    
 
   </article>
 
